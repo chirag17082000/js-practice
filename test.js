@@ -1,2 +1,2 @@
-console.log("Chirag")
-console.log("Happy birthdsy")
+"use strict"
+console.log("Welcome")
