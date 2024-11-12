@@ -29,6 +29,8 @@ let myObj = {
 const myFunction = function(){
     console.log("Hello world")
 }
+console.log(typeof myFunction)
+
 
 //Rference type(Non primiive)
 
