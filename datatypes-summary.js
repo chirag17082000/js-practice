@@ -35,3 +35,23 @@ console.log(typeof myFunction)
 //Rference type(Non primiive)
 
 //Array. objects, functions
+
+//*********************************** */
+
+//Stack(Primitive), Heap(Non Primitive)
+
+  let companyName = "Tata Consultancy"
+
+  let anotherName = companyName
+  anotherName = "Osmosys"
+  console.log(companyName)
+  console.log(anotherName)
+
+  let user = {
+    email : "abc@gmail.com",
+    upiId : "123@ybl.com"
+  }
+
+  let user2 = user;
+  user2.email= "xyz@cloud.com"
+  console.log(user2)
