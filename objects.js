@@ -74,7 +74,7 @@ const obj2 = {3: "a", 4: "b"}
 //  console.log(obj3);
 
 const obj3 = {...obj1, ...obj2};
-console.log(obj3);
+// console.log(obj3);
 
 //Jab data database se atta hai tab
 
@@ -96,13 +96,56 @@ const users = [
 
 //console.log(users[1].id);
 
-console.log(Object.keys(tinderUser)); //ye hume array bnadega object ki jispar hum loop laga payenge
-console.log(Object.values(tinderUser));
-console.log(Object.entries(tinderUser));
+// console.log(Object.keys(tinderUser)); //ye hume array bnadega object ki jispar hum loop laga payenge
+// console.log(Object.values(tinderUser));
+// console.log(Object.entries(tinderUser));
 
 //Some time we try to access some values which are null or not accessible -> which results to crash
 // Check property available or not
-console.log(tinderUser.hasOwnProperty('isLoggedIn'));
+// console.log(tinderUser.hasOwnProperty('isLoggedIn'));
 
 // To check different function/ Properties avaialble in object then we can check in browser -> inspect tab -> create new object -> check prototype differnt
+
+const course = {
+    courseName : "JSHINDI",
+    price : "999",
+    courseInstructor : "Hitesh"
+}
+// Jab hume course object ki koi value print karni hogi toh har time course. karke use karna achi practice nhi hai
+
+// course.courseInstructor   -> Isko avoid karenge
+
+//Iske jagah aise use karenge courseInstructor ko as instructor refer karenge
+
+const {courseInstructor: instructor} = course
+
+console.log(instructor);
+
+// ye react ka part hai -> ye object ki destructuring hai
+// const navbar = ({company}) => {
+
+// }
+
+// navbar(company = "hitesh")
+
+
+// ye hai json -> json means object
+//JSON me key and pair value me data store hota hai -> key ka name bhi as a string hota hai
+//jab koi api call karte hai toh response JSON format me atta hai earlier it was in XML format
+// {
+//     "name": "chirag",
+//     "coursename" : "Js in hindi",
+//     "price" : "free"
+// }
+
+
+//Sometime API response is array of objects
+[
+    {},
+    {},
+    {}
+]
+
+// Random User API for testing and learning 
+//JSON formatter for read easy format of JSON object response
 
