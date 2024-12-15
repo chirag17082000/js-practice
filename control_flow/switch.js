@@ -51,3 +51,4 @@ switch (month) {
         console.log("No match found")
         break;
 }
+
