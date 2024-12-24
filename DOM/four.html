@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code</title>
+</head>
+<body style="background-color: black; color: white;">
+    <ul class="language">
+        <li>Javascrpt</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName){
+         const li = document.createElement('li');
+         li.innerHTML = `${langName}`
+         document.querySelector('.language').appendChild(li)
+    }
+    //Is function me jab hum innerHTML me insert karte hai toh puri tree traverse hoti hai then value insert karte hai
+    addLanguage("python")
+    addLanguage("typescript")
+    addLanguage("Ruby")
+
+    function addOptiLanguage(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector('.language').appendChild(li);
+    }
+    //Isme direct ek node append karke usme add kardenge
+
+    addOptiLanguage('Cpp');
+    //Above both functions are same. Second approach is more optimized in compare to first one
+
+    //edit
+    const secondLang = document.querySelector("li:nth-child(2)");
+    //secondLang.innerHTML = "Mojo"
+    const newLi = document.createElement('li')
+    newLi.textContent = "Mojo"
+    secondLang.replaceWith(newLi)
+
+    //edit
+    const firstLang = document.querySelector("li:first-child");
+    firstLang.outerHTML = '<li>Typescript<li>'
+
+    //remove
+    const lastLang = document.querySelector("li:last-child");
+    lastLang.remove()
+</script>
+</html>
