@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li> 
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // Javascript is a squentially run language but there are some exceptions
+    //Approach 1 - Direct inject javascript in HTML button/element
+    //Approach 2 below
+    // document.getElementById('owl').onclick = function(){
+    //     alert('owl clicked')
+    // }
+    //Above approach is good but instead we use addeventlistner
+    //Approach -3
+    // document.getElementById('owl').addEventListener('click', function(){
+    //     alert('owl clicked again')
+    // }, false) //yaha false likhna hota hai third parameter me bydefault bhi false hi hota hai 
+
+    //attachEvent()
+    // JQuery - on 
+
+    // Read from MDN docs- types of events, timestamps, defaultPrevented
+    // Read from MDN docs-  target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altKey, ctrlKey, shiftKey, keyCode
+    //Read event propagation from MDN docs
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul") // ye event ek object hai-> isme hume bhot sare events milte hai browse and environment
+    // }, false)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("Owl clicked") // ye event ek object hai-> isme hume bhot sare events milte hai browse and environment
+    // }, false)
+    // Event propagation -> means bubling up EVENT BUBBLING-> bubble niche se uper jata hai
+    // Jab uper diye gye event me -> kisi bhi image except owl pe click karenege toh sirf first event trigge hoga
+    //But agar owl image pe click karenge toh pehle own then above event trigger hoga
+    
+    
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul") // ye event ek object hai-> isme hume bhot sare events milte hai browse and environment
+    // }, true)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("Owl clicked") // ye event ek object hai-> isme hume bhot sare events milte hai browse and environment
+    // }, true)
+
+    //ye agr 3rd parameter true pass karenege toh ye hai EVENT CAPTURING
+    //Pehle first event jo define hoga wo hoga
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul") // ye event ek object hai-> isme hume bhot sare events milte hai browse and environment
+    // }, false)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("Owl clicked") // ye event ek object hai-> isme hume bhot sare events milte hai browse and environment
+    //     e.stopPropagation(); //ye bubble propagation ko stop krdega
+    // }, false)
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     console.log("google clicked")
+       
+    // }, false)
+
+   document.querySelector('#images').addEventListener('click', function(e){
+    // console.log(e.target.parentNode);
+    console.log(e.target.tagName)
+    if(e.target.tagName == 'IMG')
+    {
+        console.log(e.target.id);
+        let removeIt = e.target.parentNode;
+        removeIt.remove();}
+    //removeIt.parentNode.removeChild(removeIt);
+   })
+</script>
+</html>
